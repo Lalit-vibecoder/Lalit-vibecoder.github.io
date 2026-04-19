@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lalit Mathur | Project Management Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary-dim": "#00d4ec","outline-variant": "#40485d","secondary-dim": "#7e51ff",
+        "tertiary": "#c7fff0","on-secondary": "#25006b","primary-container": "#00e3fd",
+        "on-error-container": "#ffa8a3","on-tertiary": "#006859","surface-container-high": "#141f38",
+        "tertiary-dim": "#4fe5ca","secondary": "#a68cff","on-surface": "#dee5ff",
+        "on-primary-fixed-variant": "#005762","secondary-container": "#591adc",
+        "primary-fixed-dim": "#00d4ec","on-secondary-container": "#e4daff",
+        "on-primary-fixed": "#003840","surface": "#060e20","error-dim": "#d7383b",
+        "inverse-primary": "#006976","surface-dim": "#060e20","surface-container-highest": "#192540",
+        "primary": "#81ecff","tertiary-fixed-dim": "#5aeed2","on-tertiary-fixed-variant": "#006a5a",
+        "surface-container-lowest": "#000000","secondary-fixed-dim": "#cabaff",
+        "primary-fixed": "#00e3fd","error": "#ff716c","tertiary-container": "#6bfde0",
+        "inverse-on-surface": "#4d556b","secondary-fixed": "#d8caff","on-primary-container": "#004d57",
+        "surface-container": "#0f1930","surface-bright": "#1f2b49","surface-container-low": "#091328",
+        "surface-tint": "#81ecff","inverse-surface": "#faf8ff","on-background": "#dee5ff",
+        "on-tertiary-container": "#005f51","on-error": "#490006","surface-variant": "#192540",
+        "on-primary": "#005762","on-surface-variant": "#a3aac4","error-container": "#9f0519",
+        "outline": "#6d758c","on-tertiary-fixed": "#004a3f","tertiary-fixed": "#6bfde0",
+        "on-secondary-fixed-variant": "#591bdc","on-secondary-fixed": "#3b00a0","background": "#060e20"
+      },
+      borderRadius: { "DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px" },
+      fontFamily: { "headline": ["Manrope"],"body": ["Plus Jakarta Sans"],"label": ["Plus Jakarta Sans"] }
+    }
+  }
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .liquid-gradient-text {
+    background: linear-gradient(135deg, #81ecff 0%, #a68cff 50%, #c7fff0 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto;
+  }
+  .ghost-border { border: 1px solid rgba(64,72,93,0.35); }
+  .glass-card { background: rgba(25,37,64,0.6); backdrop-filter: blur(20px); }
+  .blob { position: absolute; filter: blur(80px); z-index: -1; opacity: 0.4; }
+  .glass-button-primary {
+    position: relative;
+    background: linear-gradient(180deg, rgba(0,227,253,0.7) 0%, rgba(0,206,209,0.6) 100%);
+    backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px -1px rgba(0,227,253,0.3), inset 0 1.5px 0px rgba(255,255,255,0.6), inset 0 0 10px rgba(0,227,253,0.4);
+    overflow: hidden; transition: all 0.4s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .glass-button-primary::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%); pointer-events:none;
+  }
+  .glass-button-primary:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, rgba(0,227,253,0.85) 0%, rgba(0,206,209,0.75) 100%);
+    box-shadow: 0 8px 25px -1px rgba(0,227,253,0.5), inset 0 1.5px 0px rgba(255,255,255,0.8), inset 0 0 15px rgba(0,227,253,0.6);
+    filter: brightness(1.1);
+  }
+  .glass-button-secondary {
+    position: relative; background: rgba(25,37,64,0.3); backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), inset 0 1.5px 0px rgba(255,255,255,0.15), inset 0 0 8px rgba(166,140,255,0.1);
+    overflow: hidden; transition: all 0.4s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .glass-button-secondary:hover {
+    transform: translateY(-2px); background: rgba(25,37,64,0.5); border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 1.5px 0px rgba(255,255,255,0.25), inset 0 0 12px rgba(166,140,255,0.2);
+    filter: brightness(1.15);
+  }
+  .skill-bar-fill { height: 3px; border-radius: 9999px; background: linear-gradient(90deg, #81ecff, #a68cff); }
+  .cert-glow { box-shadow: 0 0 20px rgba(129,236,255,0.1); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .form-input {
+    width: 100%; padding: 12px 16px;
+    background: rgba(25,37,64,0.5); border: 1px solid rgba(64,72,93,0.5);
+    border-radius: 12px; color: #dee5ff; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; outline: none; resize: none; transition: border-color 0.2s, background 0.2s;
+  }
+  .form-input:focus { border-color: rgba(129,236,255,0.5); background: rgba(25,37,64,0.8); }
+  .form-input::placeholder { color: #a3aac4; }
+  .form-input option { background: #0f1930; color: #dee5ff; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-xl border-b border-slate-700/20 shadow-2xl shadow-cyan-900/10">
+  <div class="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto font-headline tracking-tight">
+    <span class="text-2xl font-bold tracking-tighter text-slate-50">LM</span>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-400 hover:text-slate-100 transition-colors" href="#about">About</a>
+      <a class="text-slate-400 hover:text-slate-100 transition-colors" href="#skills">Skills</a>
+      <a class="text-slate-400 hover:text-slate-100 transition-colors" href="#experience">Experience</a>
+      <a class="text-slate-400 hover:text-slate-100 transition-colors" href="#certifications">Certifications</a>
+      <a class="text-slate-400 hover:text-slate-100 transition-colors" href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="glass-button-primary text-on-primary px-6 py-2.5 rounded-xl font-bold active:scale-95 z-10 text-sm">Hire Me</a>
+  </div>
+</nav>
+
+<main class="relative pt-20">
+  <div class="blob w-[500px] h-[500px] bg-primary top-[-100px] left-[-100px] rounded-full"></div>
+  <div class="blob w-[600px] h-[600px] bg-secondary bottom-[-200px] right-[-100px] rounded-full"></div>
+  <div class="blob w-[400px] h-[400px] bg-tertiary top-[40%] left-[60%] rounded-full"></div>
+
+  <!-- HERO -->
+  <section class="min-h-[870px] flex flex-col items-center justify-center px-6 relative overflow-hidden">
+    <div class="max-w-5xl w-full text-center space-y-8">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-primary text-sm font-medium tracking-wide">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+        </span>
+        OPEN TO NEW OPPORTUNITIES
+      </div>
+      <h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter leading-[0.9] liquid-gradient-text py-2">
+        Lalit<br/>Mathur
+      </h1>
+      <p class="text-lg md:text-2xl text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
+        Lead Analyst (Projects) &nbsp;·&nbsp; 7+ Years Delivering IT Infrastructure Programs Worth <span class="text-primary font-medium">USD 2.1B+</span>
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-primary text-xs font-medium">PMP®</span>
+        <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-secondary text-xs font-medium">PRINCE2 Agile®</span>
+        <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-tertiary text-xs font-medium">ITIL® v4</span>
+        <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-primary text-xs font-medium">AZ-900 (In Progress)</span>
+        <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-secondary text-xs font-medium">Power BI</span>
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 pt-4">
+        <a href="#contact" class="glass-button-primary text-on-primary px-10 py-5 font-bold rounded-2xl active:scale-95 text-lg">Get in Touch</a>
+        <a href="#experience" class="glass-button-secondary text-on-surface px-10 py-5 font-semibold rounded-2xl flex items-center gap-2 group">
+          View Experience
+          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:20px">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+      <span class="text-[10px] uppercase tracking-[0.3em] text-on-surface-variant">Scroll to explore</span>
+      <div class="w-px h-16 bg-gradient-to-b from-primary/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="max-w-7xl mx-auto px-8 pb-24 reveal">
+    <div class="flex flex-wrap justify-center md:justify-between items-center gap-12 py-16 ghost-border glass-card rounded-none md:rounded-[3rem]">
+      <div class="text-center px-8">
+        <div class="text-5xl font-headline font-black text-primary mb-1">7+</div>
+        <div class="text-xs tracking-widest text-on-surface-variant uppercase">Years Experience</div>
+      </div>
+      <div class="w-px h-12 bg-outline-variant/30 hidden md:block"></div>
+      <div class="text-center px-8">
+        <div class="text-5xl font-headline font-black text-secondary mb-1">$2.1B+</div>
+        <div class="text-xs tracking-widest text-on-surface-variant uppercase">Programs Delivered</div>
+      </div>
+      <div class="w-px h-12 bg-outline-variant/30 hidden md:block"></div>
+      <div class="text-center px-8">
+        <div class="text-5xl font-headline font-black text-tertiary mb-1">40%</div>
+        <div class="text-xs tracking-widest text-on-surface-variant uppercase">Reporting Automated</div>
+      </div>
+      <div class="w-px h-12 bg-outline-variant/30 hidden md:block"></div>
+      <div class="text-center px-8">
+        <div class="text-5xl font-headline font-black text-on-surface mb-1">3+</div>
+        <div class="text-xs tracking-widest text-on-surface-variant uppercase">Top Certifications</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-7xl mx-auto px-8 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="lg:col-span-4 reveal">
+        <div class="relative group h-[460px]">
+          <div class="absolute -inset-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div class="relative h-full overflow-hidden rounded-[2rem] ghost-border glass-card flex flex-col items-center justify-center p-10 gap-6">
+            <div class="w-32 h-32 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/30 flex items-center justify-center">
+              <span class="text-4xl font-headline font-black liquid-gradient-text">LM</span>
+            </div>
+            <div class="text-center">
+              <h3 class="font-headline text-2xl font-bold text-on-surface">Lalit Mathur</h3>
+              <p class="text-primary-dim font-medium text-sm mt-1">Lead Analyst (Projects)</p>
+              <p class="text-on-surface-variant text-xs mt-1">HCL Technologies · Delhi, India</p>
+            </div>
+            <div class="flex flex-col gap-3 w-full mt-2">
+              <div class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary" style="font-size:18px">location_on</span>Delhi, India — Remote Ready
+              </div>
+              <div class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-secondary" style="font-size:18px">schedule</span>IST (UTC+5:30) · Responds in 24h
+              </div>
+              <div class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-tertiary" style="font-size:18px">work</span>Cloud PM · IT PMO · Infra PM
+              </div>
+            </div>
+            <a href="https://linkedin.com/in/" target="_blank" class="glass-button-secondary text-on-surface px-6 py-2 rounded-xl text-sm font-semibold w-full text-center">LinkedIn Profile →</a>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-8 flex flex-col gap-8">
+        <div class="glass-card ghost-border rounded-[2rem] p-10 relative overflow-hidden reveal">
+          <span class="material-symbols-outlined text-primary/20 text-8xl absolute -top-4 -right-4 rotate-12" style="font-variation-settings:'FILL' 1;">format_quote</span>
+          <h2 class="text-4xl font-headline font-bold mb-6 text-on-surface">Turning <span class="text-secondary">complexity</span> into<br/>controlled delivery</h2>
+          <div class="space-y-5 text-on-surface-variant text-base leading-relaxed font-light">
+            <p>Results-driven Project Management Professional with 7+ years across PMO operations, project planning, scheduling, cost control, stakeholder management, and risk mitigation.</p>
+            <p>Proven expertise in end-to-end project delivery, governance compliance, and data-driven reporting using MS Project, Power BI, and Excel. Strong background in managing cross-functional teams, vendors, and large-scale infrastructure initiatives.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-card ghost-border rounded-2xl p-6 hover:bg-surface-container-high transition-colors group reveal">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-primary">account_tree</span>
+            </div>
+            <h4 class="font-headline font-bold mb-2">Governance</h4>
+            <p class="text-sm text-on-surface-variant">Rigorous PMO compliance, RAID logs and change control across programs.</p>
+          </div>
+          <div class="glass-card ghost-border rounded-2xl p-6 hover:bg-surface-container-high transition-colors group reveal">
+            <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-secondary">bar_chart</span>
+            </div>
+            <h4 class="font-headline font-bold mb-2">Data-Led</h4>
+            <p class="text-sm text-on-surface-variant">Executive dashboards and MIS reports that drive real decisions.</p>
+          </div>
+          <div class="glass-card ghost-border rounded-2xl p-6 hover:bg-surface-container-high transition-colors group reveal">
+            <div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-tertiary">groups</span>
+            </div>
+            <h4 class="font-headline font-bold mb-2">Stakeholders</h4>
+            <p class="text-sm text-on-surface-variant">Building trust with executives, vendors, and cross-functional teams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="max-w-7xl mx-auto px-8 py-24">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs tracking-[0.3em] uppercase text-primary mb-3">What I Bring</p>
+      <h2 class="text-4xl md:text-5xl font-headline font-extrabold liquid-gradient-text py-1">Skills &amp; Expertise</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="glass-card ghost-border rounded-2xl p-7 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-primary">task_alt</span>
+        </div>
+        <h3 class="font-headline font-bold text-lg mb-4">Project &amp; Program Management</h3>
+        <div class="space-y-3">
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5"><span>End-to-End Delivery</span><span class="text-primary">Expert</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5 pt-1"><span>PMO Operations</span><span class="text-primary">Expert</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:92%"></div></div></div>
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5 pt-1"><span>Risk &amp; Issue Management</span><span class="text-primary">Advanced</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        </div>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-7 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-secondary">calendar_month</span>
+        </div>
+        <h3 class="font-headline font-bold text-lg mb-4">Planning &amp; Cost Control</h3>
+        <div class="space-y-3">
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5"><span>Scheduling (MS Project)</span><span class="text-secondary">Expert</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5 pt-1"><span>Budgeting &amp; Forecasting</span><span class="text-secondary">Advanced</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:87%"></div></div></div>
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5 pt-1"><span>Variance Analysis</span><span class="text-secondary">Advanced</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+        </div>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-7 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-tertiary">insert_chart</span>
+        </div>
+        <h3 class="font-headline font-bold text-lg mb-4">MIS &amp; Analytics</h3>
+        <div class="space-y-3">
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5"><span>Power BI</span><span class="text-tertiary">Advanced</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5 pt-1"><span>Excel (Advanced)</span><span class="text-tertiary">Expert</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+          <div><div class="flex justify-between text-xs text-on-surface-variant mb-1.5 pt-1"><span>Executive Dashboards</span><span class="text-tertiary">Advanced</span></div><div class="bg-surface-container-high rounded-full h-[3px]"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+        </div>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-7 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-primary">handshake</span>
+        </div>
+        <h3 class="font-headline font-bold text-lg mb-4">Stakeholder &amp; Vendor</h3>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs">Client Management</span>
+          <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs">Vendor Evaluation</span>
+          <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs">Procurement</span>
+          <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs">RFQ / BOQ</span>
+          <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs">Negotiation</span>
+          <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs">Change Management</span>
+        </div>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-7 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-secondary">construction</span>
+        </div>
+        <h3 class="font-headline font-bold text-lg mb-4">Tools &amp; Technologies</h3>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs">MS Project</span>
+          <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs">Project Online</span>
+          <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs">Power BI</span>
+          <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs">Excel (Advanced)</span>
+          <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs">Google Workspace</span>
+          <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs">Generative AI</span>
+        </div>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-7 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-tertiary">cloud</span>
+        </div>
+        <h3 class="font-headline font-bold text-lg mb-4">Cloud &amp; Infrastructure</h3>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-xs">Azure (AZ-900)</span>
+          <span class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-xs">IT Infrastructure PM</span>
+          <span class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-xs">ITIL® v4</span>
+          <span class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-xs">Cloud PM</span>
+          <span class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-xs">BSS O&amp;M</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="max-w-7xl mx-auto px-8 py-24">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs tracking-[0.3em] uppercase text-primary mb-3">Career Journey</p>
+      <h2 class="text-4xl md:text-5xl font-headline font-extrabold liquid-gradient-text py-1">Work Experience</h2>
+    </div>
+    <div class="flex flex-col gap-6">
+
+      <div class="glass-card ghost-border rounded-2xl p-8 reveal group hover:bg-surface-container-high transition-colors">
+        <div class="flex flex-col md:flex-row md:items-start gap-5">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-primary">corporate_fare</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-1">
+              <h3 class="font-headline font-bold text-xl text-on-surface">Lead Analyst – Projects</h3>
+              <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium self-start">Jan 2024 – Present</span>
+            </div>
+            <p class="text-primary-dim text-sm font-medium mb-4">HCL Technologies</p>
+            <ul class="space-y-2">
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-primary mt-0.5 flex-shrink-0">→</span>Led end-to-end project execution across scope, schedule, budget, resources, and vendors — supporting IT infrastructure programs valued at <strong class="text-primary font-semibold">USD 2.1B+</strong>.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-primary mt-0.5 flex-shrink-0">→</span>Designed and maintained executive dashboards using Power BI, Excel &amp; Google Workspace, improving leadership decision-making turnaround.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-primary mt-0.5 flex-shrink-0">→</span>Conducted risk identification and mitigation planning, reducing schedule slippages across multiple workstreams.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-primary mt-0.5 flex-shrink-0">→</span>Supported financial tracking, variance analysis, and forecasting to strengthen cost control and budget adherence.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card ghost-border rounded-2xl p-8 reveal group hover:bg-surface-container-high transition-colors">
+        <div class="flex flex-col md:flex-row md:items-start gap-5">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-secondary">business_center</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-1">
+              <h3 class="font-headline font-bold text-xl text-on-surface">PMO Executive</h3>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-medium self-start">May 2022 – Dec 2023</span>
+            </div>
+            <p class="text-secondary text-sm font-medium mb-4">Agreeya Solutions</p>
+            <ul class="space-y-2">
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-secondary mt-0.5 flex-shrink-0">→</span>Managed schedules, budgets, and resource plans using MS Project and Project Online across multiple concurrent initiatives.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-secondary mt-0.5 flex-shrink-0">→</span>Automated reporting workflows, reducing manual effort by <strong class="text-secondary font-semibold">30–40%</strong> — recognised with the "Extra Mile" Award.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-secondary mt-0.5 flex-shrink-0">→</span>Delivered weekly and monthly PMO reports to senior leadership, enhancing portfolio-level visibility.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-secondary mt-0.5 flex-shrink-0">→</span>Built strong client, executive, and vendor relationships to support delivery and strategic alignment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card ghost-border rounded-2xl p-8 reveal group hover:bg-surface-container-high transition-colors">
+        <div class="flex flex-col md:flex-row md:items-start gap-5">
+          <div class="w-12 h-12 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-tertiary">manage_accounts</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-1">
+              <h3 class="font-headline font-bold text-xl text-on-surface">Consultant – Project Manager</h3>
+              <span class="px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-xs font-medium self-start">Oct 2021 – May 2022</span>
+            </div>
+            <p class="text-tertiary text-sm font-medium mb-4">We-ACE</p>
+            <ul class="space-y-2">
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-tertiary mt-0.5 flex-shrink-0">→</span>Delivered projects on time and within budget using MS Project and Gantt charts for scheduling and dependency management.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-tertiary mt-0.5 flex-shrink-0">→</span>Served as Product Owner for a website redesign, facilitating stakeholder collaboration and requirement prioritisation.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-tertiary mt-0.5 flex-shrink-0">→</span>Developed detailed risk registers enabling proactive issue escalation and resolution.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card ghost-border rounded-2xl p-8 reveal group hover:bg-surface-container-high transition-colors">
+        <div class="flex flex-col md:flex-row md:items-start gap-5">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-primary">warehouse</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-1">
+              <h3 class="font-headline font-bold text-xl text-on-surface">Senior Project Engineer</h3>
+              <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium self-start">Dec 2020 – Apr 2021</span>
+            </div>
+            <p class="text-primary-dim text-sm font-medium mb-4">Shree Shubham Logistics Ltd.</p>
+            <ul class="space-y-2">
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-primary mt-0.5 flex-shrink-0">→</span>Managed planning, procurement, and vendor evaluation for warehouse and cold storage infrastructure across Rajasthan.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-primary mt-0.5 flex-shrink-0">→</span>Achieved <strong class="text-primary font-semibold">50%+ reduction</strong> in electrical costs through site assessment, vendor negotiation &amp; government coordination.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-primary mt-0.5 flex-shrink-0">→</span>Led and coordinated 70+ personnel across multiple sites.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card ghost-border rounded-2xl p-8 reveal group hover:bg-surface-container-high transition-colors">
+        <div class="flex flex-col md:flex-row md:items-start gap-5">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-secondary">electrical_services</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-1">
+              <h3 class="font-headline font-bold text-xl text-on-surface">Project Coordinator</h3>
+              <span class="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-medium self-start">Sep 2018 – Feb 2020</span>
+            </div>
+            <p class="text-secondary text-sm font-medium mb-4">Rural Electrification Corporation (JV – Ministry of Energy)</p>
+            <ul class="space-y-2">
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-secondary mt-0.5 flex-shrink-0">→</span>Supported planning, execution, and monitoring of electrical maintenance projects across Rajasthan.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-secondary mt-0.5 flex-shrink-0">→</span>Facilitated clearance of <strong class="text-secondary font-semibold">INR 3+ crore</strong> in pending bills through effective stakeholder engagement with ULBs and government officials.</li>
+              <li class="flex gap-3 text-sm text-on-surface-variant"><span class="text-secondary mt-0.5 flex-shrink-0">→</span>Coordinated end-to-end PR-to-PO procurement including RFQs, negotiations, BOQs, and purchase orders.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="max-w-7xl mx-auto px-8 py-24">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs tracking-[0.3em] uppercase text-primary mb-3">Credentials</p>
+      <h2 class="text-4xl md:text-5xl font-headline font-extrabold liquid-gradient-text py-1">Certifications &amp; Training</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-primary text-2xl">emoji_events</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">PMP®</h3>
+        <p class="text-xs text-on-surface-variant">Project Management Institute</p>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-secondary text-2xl">bolt</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">PRINCE2 Agile®</h3>
+        <p class="text-xs text-on-surface-variant">Foundation – AXELOS</p>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-tertiary/20 to-tertiary/5 border border-tertiary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-tertiary text-2xl">build</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">ITIL® v4</h3>
+        <p class="text-xs text-on-surface-variant">Foundation – AXELOS</p>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-primary text-2xl">cloud_done</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">AZ-900</h3>
+        <p class="text-xs text-on-surface-variant">Microsoft Azure – In Progress</p>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-secondary text-2xl">bar_chart</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">Power BI</h3>
+        <p class="text-xs text-on-surface-variant">Analyzing &amp; Visualizing Data</p>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-tertiary/20 to-tertiary/5 border border-tertiary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-tertiary text-2xl">smart_toy</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">Gen AI for PMs</h3>
+        <p class="text-xs text-on-surface-variant">PMI – Overview</p>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-primary text-2xl">folder_open</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">MS Project</h3>
+        <p class="text-xs text-on-surface-variant">Beginner to Expert – Udemy</p>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-6 text-center cert-glow group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-secondary text-2xl">trending_up</span>
+        </div>
+        <h3 class="font-headline font-bold text-base mb-1">Business Intelligence</h3>
+        <p class="text-xs text-on-surface-variant">Introduction – CFI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="max-w-7xl mx-auto px-8 py-24">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs tracking-[0.3em] uppercase text-primary mb-3">Academic Background</p>
+      <h2 class="text-4xl md:text-5xl font-headline font-extrabold liquid-gradient-text py-1">Education</h2>
+    </div>
+    <div class="flex flex-col gap-5 max-w-3xl mx-auto">
+      <div class="glass-card ghost-border rounded-2xl p-7 flex items-start gap-5 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-primary">school</span>
+        </div>
+        <div>
+          <h3 class="font-headline font-bold text-base">Master of Business Administration</h3>
+          <p class="text-on-surface-variant text-sm mt-1">Suresh Gyan Vihar University, Jaipur – Distance Education</p>
+          <span class="inline-block mt-2 px-3 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs">Specialisation: Operations</span>
+        </div>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-7 flex items-start gap-5 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-secondary">engineering</span>
+        </div>
+        <div>
+          <h3 class="font-headline font-bold text-base">B.Tech – Electrical Engineering</h3>
+          <p class="text-on-surface-variant text-sm mt-1">Swami Keshwanand Institute of Technology, Management &amp; Gramothan, Jaipur</p>
+        </div>
+      </div>
+      <div class="glass-card ghost-border rounded-2xl p-7 flex items-start gap-5 group hover:bg-surface-container-high transition-colors reveal">
+        <div class="w-12 h-12 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-tertiary">draw</span>
+        </div>
+        <div>
+          <h3 class="font-headline font-bold text-base">Diploma – Electrical Engineering</h3>
+          <p class="text-on-surface-variant text-sm mt-1">Regional Institute of Polytechnic Studies, Vatika, Jaipur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-7xl mx-auto px-8 py-24 pb-32">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs tracking-[0.3em] uppercase text-primary mb-3">Let's Connect</p>
+      <h2 class="text-4xl md:text-5xl font-headline font-extrabold liquid-gradient-text py-1">Open to Opportunities</h2>
+      <p class="text-on-surface-variant text-base mt-4 max-w-xl mx-auto">Actively exploring Cloud PM, IT PMO, and Infrastructure PM roles. Drop a message — I respond within 24 hours.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+      <div class="lg:col-span-2 flex flex-col gap-5 reveal">
+        <div class="glass-card ghost-border rounded-2xl p-6 flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-primary" style="font-size:20px">location_on</span>
+          </div>
+          <div><p class="text-xs text-on-surface-variant mb-0.5">Location</p><p class="text-sm font-medium">Delhi, India · Remote &amp; Hybrid</p></div>
+        </div>
+        <div class="glass-card ghost-border rounded-2xl p-6 flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-secondary" style="font-size:20px">schedule</span>
+          </div>
+          <div><p class="text-xs text-on-surface-variant mb-0.5">Timezone</p><p class="text-sm font-medium">IST (UTC+5:30)</p></div>
+        </div>
+        <div class="glass-card ghost-border rounded-2xl p-6 flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-tertiary" style="font-size:20px">work</span>
+          </div>
+          <div><p class="text-xs text-on-surface-variant mb-0.5">Target Roles</p><p class="text-sm font-medium">Cloud PM · IT PMO · Infra PM</p></div>
+        </div>
+        <a href="https://linkedin.com/in/" target="_blank" class="glass-card ghost-border rounded-2xl p-6 flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+          <div class="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-primary" style="font-size:20px">link</span>
+          </div>
+          <div><p class="text-xs text-on-surface-variant mb-0.5">LinkedIn</p><p class="text-sm font-medium text-primary">View Profile →</p></div>
+        </a>
+      </div>
+      <div class="lg:col-span-3 glass-card ghost-border rounded-2xl p-8 reveal">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-xs text-on-surface-variant mb-2 tracking-wide">Your Name</label>
+              <input class="form-input" type="text" name="name" placeholder="Full name" required>
+            </div>
+            <div>
+              <label class="block text-xs text-on-surface-variant mb-2 tracking-wide">Company</label>
+              <input class="form-input" type="text" name="company" placeholder="Organisation">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-xs text-on-surface-variant mb-2 tracking-wide">Email Address</label>
+            <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="mb-4">
+            <label class="block text-xs text-on-surface-variant mb-2 tracking-wide">Purpose</label>
+            <select class="form-input" name="purpose">
+              <option value="">Select a reason</option>
+              <option value="job">Job Opportunity</option>
+              <option value="freelance">Freelance / Contract</option>
+              <option value="collab">Collaboration</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="mb-6">
+            <label class="block text-xs text-on-surface-variant mb-2 tracking-wide">Message</label>
+            <textarea class="form-input" name="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
+          </div>
+          <button type="submit" class="glass-button-primary w-full py-4 rounded-xl font-bold text-on-primary text-base active:scale-95">Send Message →</button>
+        </form>
+        <div id="formSuccess" style="display:none" class="text-center py-8 text-primary">
+          <span class="material-symbols-outlined text-4xl block mb-3" style="font-variation-settings:'FILL' 1">check_circle</span>
+          Message sent! I'll get back to you within 24 hours.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full py-12 border-t border-slate-800/30 bg-slate-950 font-body text-sm">
+  <div class="flex flex-col md:flex-row justify-between items-center px-12 gap-6 max-w-7xl mx-auto">
+    <div class="flex flex-col gap-2">
+      <span class="text-lg font-headline font-black text-slate-200">Lalit Mathur</span>
+      <p class="text-slate-500">© 2025 · Lead Analyst (Projects) · All rights reserved.</p>
+    </div>
+    <div class="flex gap-8">
+      <a class="text-slate-500 hover:text-cyan-300 transition-colors duration-200" href="#about">About</a>
+      <a class="text-slate-500 hover:text-cyan-300 transition-colors duration-200" href="#experience">Experience</a>
+      <a class="text-slate-500 hover:text-cyan-300 transition-colors duration-200" href="#contact">Contact</a>
+      <a class="text-slate-500 hover:text-cyan-300 transition-colors duration-200" href="https://linkedin.com/in/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+    navLinks.forEach(a => {
+      const active = a.getAttribute('href') === '#' + current;
+      a.classList.toggle('text-cyan-400', active);
+      a.classList.toggle('text-slate-400', !active);
+    });
+  });
+
+  const form = document.getElementById('contactForm');
+  const successMsg = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+        if (res.ok) { form.style.display = 'none'; successMsg.style.display = 'block'; }
+      } catch(err) { alert('Something went wrong. Please try again.'); }
+    });
+  }
+</script>
+</body>
+</html>
